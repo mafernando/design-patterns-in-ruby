@@ -1,5 +1,28 @@
-# General Notes
-# 'p' is equivalent to 'puts foo.inspect'
+require 'pry'
+
+# Environment Notes
+# **'p' is equivalent to 'puts foo.inspect'
+# *** when specifying a required gem, make sure to use quotes NOT backticks - otherwise ruby will hang
+
+# Fixnums and Bignums
+
+x= 3
+y= 4
+sum = x+y
+product = x*y
+p sum
+p product
+
+6/3 # Is 2
+7/3 # Is still 2
+8/3 # 2 again
+9/3 # Is 3 finally!
+
+p 2.class                 # A Fixnum
+p 437.class               # A Fixnum
+p (2**437).class          # Very definitely a big Bignum
+p 1234567890.class        # Another Bignum
+p (1234567890/1234567890) # Divide 2 Bignums, and get 1, a Fixnum
 
 # Truth, Lies, and Nil
 # DPiR_page: 28
@@ -115,3 +138,9 @@ poem = first + second
 p (first.length)     # Prints 8
 p (poem.upcase)
 p (poem.downcase)
+
+# example of treating a string like an array
+poem[0] = 'G'
+puts(poem)
+
+binding.pry
