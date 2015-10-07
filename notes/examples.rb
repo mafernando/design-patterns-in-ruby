@@ -327,3 +327,36 @@ end
 x = InterestBearingAccount.new :Michael, 24
 x.talk_about_me
 
+# Argument Options
+# DPiR: 47
+
+# Argument Notes:
+# 1) If you declare args with default values, they MUST occur at the
+# END of the method's arg list.
+# 2) You can also pass variable length args using '*' before `arg_name`.
+# Pretty sure you CANT mix variable length arg list with args that have
+# default values
+car_thing = Class.new do
+  attr_reader :car, :model, :convertible, :pickup, :drivers
+  def initialize(model, convertible=false, pickup=false)
+    @drivers = []
+    @model = model
+    @pickup = pickup
+    @convertible = convertible
+    @car = create_car model, convertible
+  end
+  def add_drivers(*drivers)
+    for driver in drivers
+      @drivers << driver
+      p "added #{driver} as a #{@model} driver"
+    end
+  end
+  private
+  def create_car(model, convertible=false)
+    { :name => model, :convertible => convertible}
+  end
+end
+
+x = car_thing.new :ford
+x.add_drivers :michael, :sam, :chris
+
