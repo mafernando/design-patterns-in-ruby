@@ -1,10 +1,11 @@
 require 'pry'
 
-# Environment Notes
-# **'p' is equivalent to 'puts foo.inspect'
-# *** when specifying a required gem, make sure to use quotes NOT backticks - otherwise ruby will hang
+# Environment Notes:
+# 1) 'p' is equivalent to 'puts foo.inspect'
+# 2) when specifying a required gem, make sure to use quotes
+# NOT backticks - otherwise ruby will hang
 
-# General Notes
+# General Notes:
 # 1) Built-in ruby types: fixnum, bignum, float,
 #   true (TrueClass), false (FalseClass)
 #   string,symbol (aka, immutable string)
@@ -30,7 +31,8 @@ p (2**437).class          # Very definitely a big Bignum
 p 1234567890.class        # Another Bignum
 p (1234567890/1234567890) # Divide 2 Bignums, and get 1, a Fixnum
 
-# composing Fixnum and Bignum results in Bignum even if the result is explicitly an integer
+# composing Fixnum and Bignum results in Bignum even if the result is
+# explicitly an integer
 0.5*10  # Is 5.0, Bignum
 1.0*1   # Is 1.0, Bignum
 
@@ -167,7 +169,8 @@ city = 'Washington'
 temp_f = 84
 puts("The city is #{city} and the temp is #{5.0/9.0 * (temp_f-32)} C")
 
-# generates multi-line value with parity to double (capital Q) quoted strings
+# generates multi-line value with parity to double quoted strings with
+# capital Q
 a_multiline_string = %Q{
 The city is #{city}.
 The temp is #{5.0/9.0 * (temp_f-32)} C
@@ -209,14 +212,14 @@ a[2]  # tank
 p a.length  # is 3
 p a.size    # is also 3
 
-# appending elements beyond end index generates intermediate indices with nil
+# appending elements beyond end index adds intermediate indices with nil
 a[6] = 'keymaker'
 p a[4]
 p a[5]
 p a[6]
 
-# simple way to append an element to the end of an array without referencing end index
-# NOTE: array elements are also dynamically typed
+# simple way to append an element to the end of an array without
+# referencing end index. array elements are also dynamically typed
 p a << 'mouse'
 
 # a common ruby convention is to return a NEW object from
