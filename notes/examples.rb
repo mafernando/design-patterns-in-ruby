@@ -4,6 +4,12 @@ require 'pry'
 # **'p' is equivalent to 'puts foo.inspect'
 # *** when specifying a required gem, make sure to use quotes NOT backticks - otherwise ruby will hang
 
+# General Notes
+# 1) Built-in ruby types: fixnum, bignum, float,
+#   true (TrueClass), false (FalseClass)
+#   string,symbol (aka, immutable string)
+#   array, hash, regex
+
 # Fixnums and Bignums
 
 x= 3
