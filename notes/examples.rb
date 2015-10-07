@@ -24,6 +24,10 @@ p (2**437).class          # Very definitely a big Bignum
 p 1234567890.class        # Another Bignum
 p (1234567890/1234567890) # Divide 2 Bignums, and get 1, a Fixnum
 
+# composing Fixnum and Bignum results in Bignum even if the result is explicitly an integer
+0.5*10  # Is 5.0, Bignum
+1.0*1   # Is 1.0, Bignum
+
 # Truth, Lies, and Nil
 # DPiR_page: 28
 
