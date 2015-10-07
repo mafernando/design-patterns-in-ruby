@@ -187,3 +187,44 @@ p first_name
 
 x = :foo
 p x.class # Symbol
+
+# Arrays
+# DPiR: 38
+
+x = []  # an empty array
+y = Array.new # another one
+a = [ 'neo',  'trinity',  'tank'] # a three-element array
+
+# ruby arrays are indexed from zero
+a[0]  # neo
+a[2]  # tank
+
+# array length
+p a.length  # is 3
+p a.size    # is also 3
+
+# appending elements beyond end index generates intermediate indices with nil
+a[6] = 'keymaker'
+p a[4]
+p a[5]
+p a[6]
+
+# simple way to append an element to the end of an array without referencing end index
+# NOTE: array elements are also dynamically typed
+p a << 'mouse'
+
+# a common ruby convention is to return a NEW object from
+# an undecorated (no end bang) method and to modify the original
+# object when the method is decorated with an end bang
+# e.g. sort vs sort!
+
+a = [77, 10, 120, 3]
+a.sort    # a [3, 10, 77, 120] - undecorated method example, no end bang
+p a       # a is unchanged [ 77, 10, 120, 3] - undecorated method example, no end bang
+
+a.reverse # a [3, 120, 10, 77] - undecorated method example, no end bang
+p a       # a is unchanged [ 77, 10, 120, 3] - undecorated method example, no end bang
+
+a.sort!     # a is now [3, 10, 77, 120]
+a.reverse!  # a is now [120, 77, 10, 3]
+p a         # a is [ 77, 10, 120, 3] - note the end bangs
