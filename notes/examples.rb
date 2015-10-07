@@ -242,3 +242,23 @@ p h['last_name']  # is Einstein
 # hash shortcut initialization with strings and symbols (preferred)
 p h = {'first_name' => 'Albert', 'last_name' => 'Einstein'}
 p h = {:first_name => 'Albert', :last_name => 'Einstein'}
+
+# Regular Expressions
+# DPiR 40
+
+# exmaple regex in ruby
+# note that they are contained inside of forwrad slashes
+p /old/
+p /Russ|Russell/
+p /.*/
+
+# example use of the =~ operator to apply regex to strings
+# the operator will return the index of first occurrence or nil
+p /old/ =~ 'this old house'  # 5 - the index of 'old'
+p /Russ|Russell/ =~ 'Fred'   # nil – Fred is not Russ nor Russell
+p /.*/ =~ 'any old string'   # 0 - the RE will match anything
+
+# !~ complements =~ by returning true if the
+# regex does NOT match the searched string
+# and false otherwise
+p /cat/ !~ 'dog' # true
