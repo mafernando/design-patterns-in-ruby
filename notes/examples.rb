@@ -144,7 +144,39 @@ p (poem.upcase)
 p (poem.downcase)
 
 # example of treating a string like an array
-poem[0] = 'G'
-puts(poem)
+# indexed from 0
+poem[0] = 'G' # prints out Gary + poem
+p poem
 
-binding.pry
+# can overwrite index with variable length string
+poem[1] = 'rego' # prints out G[rego]ry + poem
+p poem
+
+# string interpolation example
+n = 42
+p "The value of n is #{n}."
+
+# string interpolation also allows for complex ruby code to be evaluated
+city = 'Washington'
+temp_f = 84
+puts("The city is #{city} and the temp is #{5.0/9.0 * (temp_f-32)} C")
+
+# generates multi-line value with parity to double (capital Q) quoted strings
+a_multiline_string = %Q{
+The city is #{city}.
+The temp is #{5.0/9.0 * (temp_f-32)} C
+}
+
+# generates multi-line value with parity to single quoted strings
+# the following result is not interpolated
+a_multiline_string = %q{
+The city is #{city}.
+The temp is #{5.0/9.0 * (temp_f-32)} C
+}
+
+# ruby strings are not immutable
+name = 'russ'
+first_name = name
+name[0] = 'R'
+p name
+p first_name
