@@ -228,3 +228,17 @@ p a       # a is unchanged [ 77, 10, 120, 3] - undecorated method example, no en
 a.sort!     # a is now [3, 10, 77, 120]
 a.reverse!  # a is now [120, 77, 10, 3]
 p a         # a is [ 77, 10, 120, 3] - note the end bangs
+
+# Hashes
+# DPiR: 40
+
+# example hash declaration
+h = {}
+h['first_name'] = 'Albert'
+h['last_name'] = 'Einstein'
+p h['first_name'] # is 'Albert'
+p h['last_name']  # is Einstein
+
+# hash shortcut initialization with strings and symbols (preferred)
+p h = {'first_name' => 'Albert', 'last_name' => 'Einstein'}
+p h = {:first_name => 'Albert', :last_name => 'Einstein'}
