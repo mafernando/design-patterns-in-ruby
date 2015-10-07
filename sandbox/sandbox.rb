@@ -46,7 +46,7 @@ if weight < 1
 elsif weight < 10
   p 'a little heavy'
 elsif weight < 100
-  puts 'heavy'
+  p 'heavy'
 else
   p 'way too heavy'
 end
@@ -65,38 +65,53 @@ end
 # Example of while syntax usage
 i = 0
 while i < 4
-  puts "i = #{i}"
+  p "i = #{i}"
   i += 1
 end
 
 # Example of until syntax usage
 i = 0
 until i >= 4
-  puts "i = #{i}"
+  p "i = #{i}"
   i += 1
 end
 
 # Example of for syntax usage
 array = ['first', 'second', 'third']
 for element in array
-  puts element
+  p element
 end
 
 # Example of break and each syntax usage
 names = ['george', 'mike', 'gary', 'diana']
 names.each do |name|
   if name == 'gary'
-    puts('Break!')
+    p ('Break!')
     break
   end
-  puts(name)
+  p (name)
 end
 
 # Example of next syntax
 names.each do |name|
   if name == 'gary'
-    puts('Next!')
+    p 'Next!'
     next
   end
-  puts(name)
+  p name
 end
+
+# Strings
+# DPiR: 34
+
+# can define strings with single and double quotes
+first = 'Mary had'
+second = " a little lamb"
+
+# concatenation
+poem = first + second
+
+# example string function
+p (first.length)     # Prints 8
+p (poem.upcase)
+p (poem.downcase)
