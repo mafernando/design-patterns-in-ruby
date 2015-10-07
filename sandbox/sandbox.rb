@@ -1,3 +1,6 @@
+# General Notes
+# 'p' is equivalent to 'puts foo.inspect'
+
 # Truth, Lies, and Nil
 # DPiR_page: 28
 
@@ -32,6 +35,7 @@ if 0
   puts 'Zero is true!' # Note: zero is considered true in ruby
 end
 
+# Decisions, Decisions
 # A simple example demonstrating if and elsif statements
 # DPiR_page: 31
 
@@ -42,7 +46,13 @@ if weight < 1
 elsif weight < 10
   p 'a little heavy'
 elsif weight < 100
-  p 'heavy'
+  puts 'heavy'
 else
-  p 'way to heavy'
+  p 'way too heavy'
+end
+
+p 'a little heavy' if weight >= 10 # can hang conditional off of one line executable statment
+
+unless weight > 100
+  p 'not too heavy'
 end
