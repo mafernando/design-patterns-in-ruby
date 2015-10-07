@@ -180,3 +180,10 @@ first_name = name
 name[0] = 'R'
 p name
 p first_name
+
+# Symbols: essentially immutable identifier type things
+# - symbols only start with colons
+# DPiR: 37
+
+x = :foo
+p x.class # Symbol
