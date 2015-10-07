@@ -289,6 +289,11 @@ p /cat/ !~ 'dog' # true
 #   - attr_writer :balance (only defines external setter)
 # 6) attr_* adds an '=' sign to end of attribute to define the getters
 # e.g. def balance= .... end where method is named 'balance='
+# 7) all ruby classes have exactly one parent, by default that is Object
+# unless otherwise specified on the class declaration
+# 8) ruby subclasses do not automatically invoke their parents
+# constructor, that call must be explicitly made with the 'super' method
+# 9) the var 'self' is a reference to the current OBJECT - not class
 class BankAccount
   attr_accessor :balance
   attr_reader :owner
@@ -303,4 +308,22 @@ class BankAccount
     @balance = @balance - amount
   end
 end
+
+# example capturing inheritance, subclasses, and superclasses - DPiR: 46
+# example also demonstrates use of the 'self' var for current object
+class InterestBearingAccount < BankAccount
+  def initialize(owner, rate)
+    super(owner) # invoke parent BankAccount initializer
+    @rate = rate
+  end
+  def talk_about_me
+    puts "Hello I am a #{self.class} and my owner is #{@owner}."
+  end
+  def deposit_interest
+    @balance += @rate * @balance
+  end
+end
+
+x = InterestBearingAccount.new :Michael, 24
+x.talk_about_me
 
