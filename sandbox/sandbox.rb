@@ -56,3 +56,47 @@ p 'a little heavy' if weight >= 10 # can hang conditional off of one line execut
 unless weight > 100
   p 'not too heavy'
 end
+
+# Loops
+# 3 main flavors of loops: while, until and for
+# for is generally avoided in favor of each syntax
+# DPiR: 32
+
+# Example of while syntax usage
+i = 0
+while i < 4
+  puts "i = #{i}"
+  i += 1
+end
+
+# Example of until syntax usage
+i = 0
+until i >= 4
+  puts "i = #{i}"
+  i += 1
+end
+
+# Example of for syntax usage
+array = ['first', 'second', 'third']
+for element in array
+  puts element
+end
+
+# Example of break and each syntax usage
+names = ['george', 'mike', 'gary', 'diana']
+names.each do |name|
+  if name == 'gary'
+    puts('Break!')
+    break
+  end
+  puts(name)
+end
+
+# Example of next syntax
+names.each do |name|
+  if name == 'gary'
+    puts('Next!')
+    next
+  end
+  puts(name)
+end
