@@ -28,6 +28,10 @@ p (true and 'fred') # fred (Note: while considered "true" will print as 'fred' -
 p ('fred' && 44)    # 44 (Note: while considered "true" will print as 44 - last value returned)
 p (nil || false)    # false
 
+if 0
+  puts 'Zero is true!' # Note: zero is considered true in ruby
+end
+
 # A simple example demonstrating if and elsif statements
 # DPiR_page: 31
 
