@@ -473,3 +473,27 @@ end
 thread1.join # wait for thread to finish with the join method
 thread2.join
 
+# Managing Separate Source Files
+# DPiR: 54
+
+# example
+# 1) the require statement will load the contents of the file into the
+# ruby interpreter and will automatically add the '.rb' suffix.
+# 2) the require statement remembers whether a file has been loaded and
+# does not reload files more than once. add require multiple times is
+# not an uncommon practice if you're unsure about dependencies.
+# 3) use require_relative to requiring file vs require which loads
+# resources using the $LOAD_PATH defined in ruby
+########################################################################
+module Banking
+  require_relative 'example_account.rb'
+  class Portfolio
+    attr_reader :account
+    def initialize name
+      @account = ExampleAccount.new name
+    end
+    # Uses ExampleAccount
+  end
+end
+
+x = Banking::Portfolio.new :michael
