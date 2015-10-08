@@ -593,9 +593,9 @@ end
 my_proc_block = lambda { |x| p "The value of x is #{x} in the proc" }
 run_it_with_parameter(1, 2, &multiply)  # param passed (&)
 
-# http://www.skorks.com/2013/04/ruby-ampersand-parameter-demystified/
 # example of sending multiple proc.
-# can only seem to pass a single lambda with ampersand for some reason, idk why
+# can only seem to pass a single lambda with ampersand for some reason, idk why.
+# otherwise, we're duck typing this mofo.
 lambda1 = lambda { |x| p "hello #{x} buddy" }
 lambda2 = lambda { |x| p "hello #{x} pal" }
 lambda3 = lambda { |x| p "hello #{x} friend" }
@@ -605,3 +605,4 @@ def multi_lambda_params(p1, p2, &p3)
   p3.call(3333)
 end
 multi_lambda_params(lambda1, lambda2, &lambda3)
+
