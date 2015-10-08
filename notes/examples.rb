@@ -360,3 +360,54 @@ end
 x = car_thing.new :ford
 x.add_drivers :michael, :sam, :chris
 
+# Modules
+# DPiR: 49
+
+# modules, like classes, are code-encapsulating entities
+# it is a package of methods and constants
+# you CAN NOT create an instance of a module
+# basically interfaces with implementation code in Java terms
+module HelloModule
+  def say_hello
+    p 'Hello out there.'
+  end
+end
+
+class TryIt
+  include HelloModule
+end
+
+tryit = TryIt.new
+tryit.say_hello
+
+# another example
+# collection of variables and function, like a class, but that can be
+# "stamped" (i.e. included) onto an ruby object to make available a
+# common set of behaviors and endpoints. ruby will first search its
+# self to find a method or variables then start looking in its
+# included modules. basically like java and c# interfaces, but
+# allows for implementation details.
+module Chatty
+  def say_hi
+    p "Hello, my name is #{name}"
+    p "My job title is #{title}"
+    p "I work in the #{department} department"
+  end
+end
+
+class Person
+  include Chatty
+  def name
+    'Fred'
+  end
+  def title
+    'Janitor'
+  end
+  def department
+    'Maintenance'
+  end
+end
+
+p = Person.new
+p.say_hi
+
