@@ -447,7 +447,7 @@ p BadMath.new.div 1, 1
 # creating threads with the thread constructor (passed a block).
 # use Monitor class with its synchronize method to define thread save
 # block to modify resources shared across threads and avoid race
-# conditions. also demonstrates upto looping construct.
+# conditions. also demonstrates upto (like each) looping construct.
 @monitor = Monitor.new
 @math_stuff = { :sum => 0, :product => 1 }
 thread1 = Thread.new do
