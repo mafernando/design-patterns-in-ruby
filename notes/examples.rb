@@ -16,6 +16,8 @@ require 'pry'
 # 4) constants are immutable by convention - but you can edit them
 # 5) use do/end for multi-line and braces for one liners (convention).
 # ** braces have a higher precedence that do/end
+# 6) the <=> will return: 1 if first element is bigger,
+# -1 if second element is bigger, and 0 if they're equal
 
 
 # Fixnums and Bignums
@@ -605,4 +607,12 @@ def multi_lambda_params(p1, p2, &p3)
   p3.call(3333)
 end
 multi_lambda_params(lambda1, lambda2, &lambda3)
+
+# overriding the array sort method with a block
+a = ['russell', 'mike', 'john', 'dan', 'rob']
+p a.sort # ["dan", "john", "mike", "rob", "russell"]
+
+# the <=> will return: 1 if first element is bigger,
+# -1 if second element is bigger, and 0 if they're equal
+p a.sort { |a,b| a.length <=> b.length }
 
