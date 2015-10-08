@@ -5,11 +5,18 @@ require 'pry'
 # 2) when specifying a required gem, make sure to use quotes
 # NOT backticks - otherwise ruby will hang
 
+
 # General Notes:
 # 1) Built-in ruby types: fixnum, bignum, float,
 #   true (TrueClass), false (FalseClass)
 #   string,symbol (aka, immutable string)
 #   array, hash, regex
+# 2) Zero is true in ruby - go figure
+# 3) ruby is dynamically typed - duck typing
+# 4) constants are immutable by convention - but you can edit them
+# 5) use do/end for multi-line and braces for one liners (convention).
+# ** braces have a higher precedence that do/end
+
 
 # Fixnums and Bignums
 
