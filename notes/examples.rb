@@ -411,3 +411,33 @@ end
 p = Person.new
 p.say_hi
 
+# Exceptions
+# DPiR: 52
+
+# simple error handling example
+begin
+  quotient = 1/0 # BOOM!
+rescue
+  p 'something bad happened!'
+end
+
+# explicit error type handling example
+begin
+  q = 1 / 0 # BOOM!
+rescue ZeroDivisionError
+  p 'you tried to divide by zero!'
+end
+
+# you can raise you own errors too when validating
+class BadMath
+  def div numerator, denominator
+    if denominator == 0
+      raise ZeroDivisionError
+    end
+    return numerator / denominator
+  end
+end
+
+# this errors out if the second arg is zero
+p BadMath.new.div 1, 1
+
