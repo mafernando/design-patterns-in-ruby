@@ -441,3 +441,35 @@ end
 # this errors out if the second arg is zero
 p BadMath.new.div 1, 1
 
+# Threads
+# DPiR: 54
+
+# creating threads with the thread constructor (passed a block).
+# use Monitor class with its synchronize method to define thread save
+# block to modify resources shared across threads and avoid race
+# conditions. also demonstrates upto looping construct.
+@monitor = Monitor.new
+@math_stuff = { :sum => 0, :product => 1 }
+thread1 = Thread.new do
+  1.upto(10) { |loop_index|
+    sum=0
+    1.upto(10) {|x| sum = sum + x}
+    @monitor.synchronize do
+      p "The sum of the first 10 integers is #{sum} [#{loop_index}]=>#{@math_stuff[:sum]}"
+      @math_stuff[:sum] += sum
+    end
+  }
+end
+thread2 = Thread.new do
+  1.upto(10) { |loop_index|
+    product=1
+    1.upto(10) {|x| product = product * x}
+    @monitor.synchronize do
+      p "The product of the first 10 integers is #{product} [#{loop_index}]=>#{@math_stuff[:product]}"
+      @math_stuff[:product] *= product
+    end
+  }
+end
+thread1.join # wait for thread to finish with the join method
+thread2.join
+
