@@ -616,3 +616,47 @@ p a.sort # ["dan", "john", "mike", "rob", "russell"]
 # -1 if second element is bigger, and 0 if they're equal
 p a.sort { |a,b| a.length <=> b.length }
 
+# Iterator Pattern
+# DPiR: 125
+
+# example iterator
+module X
+  class FooBar
+    attr_accessor :foo, :sortable_value
+    def initialize(foo, sortable_value)
+      @foo = foo
+      @sortable_value = sortable_value
+    end
+    def <=>(other_foobar)
+      @sortable_value <=> other_foobar.sortable_value
+    end
+  end
+
+  class FooIterator
+    def initialize
+      @foobars = []
+    end
+
+    def sort
+      @foobars.sort
+    end
+
+    def each(&block)
+      @foobars.each(&block)
+    end
+
+    def addFoo(foobar)
+      @foobars << foobar
+    end
+  end
+end
+
+x = X::FooIterator.new
+x.addFoo (X::FooBar.new :michael, 1)
+x.addFoo (X::FooBar.new :jon, 2)
+x.addFoo (X::FooBar.new :jen, -10)
+
+p x # prints iterator unsorted
+p x.sort # prints returned foobars sorted
+
+# binding.pry
