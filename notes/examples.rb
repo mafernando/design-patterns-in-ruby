@@ -18,7 +18,7 @@ require 'pry'
 # ** braces have a higher precedence that do/end
 # 6) the <=> will return: 1 if first element is bigger,
 # -1 if second element is bigger, and 0 if they're equal
-
+# 7) @ is an instance variable, while one prefixed with @@ is a class variable
 
 # Fixnums and Bignums
 
