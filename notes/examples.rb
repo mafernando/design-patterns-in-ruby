@@ -659,4 +659,18 @@ x.addFoo (X::FooBar.new :jen, -10)
 p x # prints iterator unsorted
 p x.sort # prints returned foobars sorted
 
+# Structs
+# N/A
+
+# This is the recommended way to customize a struct. Subclassing an
+# anonymous struct creates an extra anonymous class won't be used.
+# Basically a Hash with methods!
+Customer = Struct.new(:name, :address) do
+  def greeting
+    "Hello #{name}!"
+  end
+end
+
+Customer.new("Dave", "123 Main").greeting  # => "Hello Dave!"
+
 # binding.pry
