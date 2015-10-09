@@ -553,7 +553,7 @@ p n
 # and then resume once the block is evaluated
 def run_it
   p 'Before the yield'
-  #yield
+  yield
   p 'After the yield'
 end
 
