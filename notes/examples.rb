@@ -662,6 +662,7 @@ p x.sort # prints returned foobars sorted
 # Structs
 # N/A
 
+# anonymous struct
 # This is the recommended way to customize a struct. Subclassing an
 # anonymous struct creates an extra anonymous class won't be used.
 # Basically a Hash with methods!
@@ -673,4 +674,25 @@ end
 
 Customer.new("Dave", "123 Main").greeting  # => "Hello Dave!"
 
-# binding.pry
+# mapping with structs using ampersand symbol to proc shorthand.
+# treats the symbol as a function (proc) to be run on each element.
+GrumbleMaker = Struct.new(:name, :address) do
+  def grumble
+    "Hello #{name}!"
+  end
+end
+
+y = []
+y << GrumbleMaker.new('michael', '121 meadow drive')
+y << GrumbleMaker.new('mark', '423 bakers lane')
+y << GrumbleMaker.new('linda', '897 rosewood street')
+
+p y.map(&:name)     # ["michael", "mark", "linda"]
+p y.map(&:grumble)  # ["Hello michael!", "Hello mark!", "Hello linda!"]
+
+# structs allow you to access attributes using
+# method call, symbol key index, and string key index
+z = y.first
+p y.name
+p y[:name]
+p y['name']
